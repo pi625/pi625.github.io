@@ -2,13 +2,8 @@
 layout: post
 title: "The Combinatorial Nullstellensatz, from scratch"
 date: 2026-07-18
-tags: [polynomial-method, combinatorics, nullstellensatz]
-excerpt: "From elementary sumset puzzles to Alon's coefficient test — one flowing narrative on why a single non-zero coefficient can force a combinatorial fact into existence."
+tags: [3B1B, SoME 5]
 ---
-
-This exposition walks from an elementary sumset puzzle to the power of the
-*polynomial method*. The plan is simple: turn a combinatorial question into a
-statement about a polynomial, and let the algebra do the counting.
 
 ## A warm-up: how small can a sumset be?
 

@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% include date_and_social_share.html %}
+  </header>
+
+  <div class="post-content glass-card">
+    {{ content }}
+  </div>
+
+  <nav class="post-nav">
+    <a href="{{ '/blog/' | relative_url }}">{{ site.theme_config.back_home_text | default: "← Home" }}</a>
+    {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>{% endif %}
+  </nav>
+</article>

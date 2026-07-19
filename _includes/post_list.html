@@ -1,5 +1,10 @@
-{% comment %} All blog posts (any Markdown file with `layout: post`), newest first. {% endcomment %}
-{% assign posts = site.pages | where: "layout", "post" | sort: "date" | reverse %}
+{% comment %}
+Lists posts (any Markdown file with `layout: post`) under a given directory,
+newest first. Pass `dir` to scope it (default: the blog at `writing/`), e.g.
+  {% include post_list.html dir="mathematics/projects/" %}
+{% endcomment %}
+{% assign list_dir = include.dir | default: "writing/" %}
+{% assign posts = site.pages | where: "layout", "post" | where_exp: "p", "p.path contains list_dir" | sort: "date" | reverse %}
 {% if posts.size > 0 %}
 <ul class="post-list">
   {% for post in posts %}

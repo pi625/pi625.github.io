@@ -42,11 +42,20 @@ theme_config:
 # post gets the URL /blog/<filename>/ and may keep colocated assets (e.g. a
 # `js/` folder) right next to its Markdown.
 defaults:
+  # Blog posts under writing/ -> /blog/<filename>/
   - scope:
       path: "writing"
     values:
       layout: "post"
       permalink: "/blog/:basename/"
+  # Mathematics projects under mathematics/projects/ -> /mathematics/projects/<filename>/
+  # (mathematics/projects.md keeps its own layout/permalink; these apply to the
+  # post bundles nested beside it.)
+  - scope:
+      path: "mathematics/projects"
+    values:
+      layout: "post"
+      permalink: "/mathematics/projects/:basename/"
 
 plugins:
   - jekyll-seo-tag

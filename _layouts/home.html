@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<header class="hero">
+  <h1 class="hero-title">{{ site.title }}</h1>
+  {% if site.theme_config.show_description %}
+    <p class="hero-tagline">{{ site.tagline }}</p>
+    <p class="hero-desc">{{ site.description }}</p>
+  {% endif %}
+</header>
+
+<section class="intro glass-card">
+  {{ content }}
+</section>
+
+{% if site.theme_config.show_blog %}
+  <section class="home-blog">
+    <div class="section-head">
+      <h2>{{ site.theme_config.home.title_blog | default: "Writing" }}</h2>
+      <a class="see-all" href="{{ '/blog/' | relative_url }}">All posts →</a>
+    </div>
+    {% include post_list.html %}
+  </section>
+{% endif %}

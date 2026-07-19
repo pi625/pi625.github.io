@@ -1,0 +1,21 @@
+navbar_entries:
+  - title: Home
+    url: /
+  - title: Blog
+    url: /blog/
+  - title: Mathematics
+    url: /mathematics/
+  - title: Linguistics
+    url: /linguistics/
+  - title: Philosophy
+    url: /philosophy/
+  - title: Etc.
+    url: /etc/
+  - title: CV
+    url: /cv/
+
+footer_entries:
+  - title: RSS
+    url: /feed.xml
+  - title: GitHub
+    url: https://github.com/pi625

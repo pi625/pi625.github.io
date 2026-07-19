@@ -1,0 +1,28 @@
+<script type="text/javascript">
+  (function () {
+    var stored = localStorage.getItem('theme');
+    if (stored) document.documentElement.setAttribute('data-theme', stored);
+  })();
+
+  window.addEventListener('load', function () {
+    var button = document.querySelector('.theme-toggle');
+    if (!button) return;
+
+    function transition() {
+      document.documentElement.classList.add('transition');
+      window.setTimeout(function () {
+        document.documentElement.classList.remove('transition');
+      }, 700);
+    }
+
+    button.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var isDark = current === 'dark' ||
+        (current !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var next = isDark ? 'light' : 'dark';
+      transition();
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  });
+</script>

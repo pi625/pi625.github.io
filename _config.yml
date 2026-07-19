@@ -1,0 +1,58 @@
+title: "pi625"
+tagline: "mathematics, language, and everything in between"
+description: "Personal site — writing on mathematics, linguistics, philosophy, and whatever else is on my mind."
+author: "pi625"
+email: ""
+baseurl: ""
+url: "https://pi625.github.io"
+lang: en
+
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:title/
+
+kramdown:
+  # Default kramdown parser (not GFM): GFM treats "|" in inline $math$ as
+  # table delimiters, which breaks equations with absolute-value bars.
+  syntax_highlighter: rouge
+  math_engine: mathjax
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+theme_config:
+  appearance: "auto"          # "light", "dark", or "auto"
+  appearance_toggle: true     # show the glass theme toggle
+  show_navbar: true           # glass navigation bar
+  show_description: true      # show tagline/description on home
+  show_blog: true             # list recent posts on the home page
+  show_footer: true           # footer links (defined in _data/home.yml)
+  show_copyright: true
+  show_reading_time: true     # word count + reading time on posts
+  show_tags: true             # render post tags
+  date_format: "%b %-d, %Y"
+  back_home_text: "← Blog"
+  home:
+    title_blog: "Recent writing"
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - vendor
+  - .bundle
+  - bin

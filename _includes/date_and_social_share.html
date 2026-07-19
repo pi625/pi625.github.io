@@ -1,0 +1,16 @@
+<div class="post-meta">
+  {% if page.date %}
+    <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: site.theme_config.date_format }}</time>
+  {% endif %}
+  {% if site.theme_config.show_reading_time %}
+    {% assign words = content | number_of_words %}
+    <span class="dot">·</span>
+    <span class="reading-time">{{ words }} words, {{ words | divided_by: 180 | plus: 1 }} min read</span>
+  {% endif %}
+</div>
+
+{% if site.theme_config.show_tags and page.tags.size > 0 %}
+  <div class="post-tags">
+    {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+  </div>
+{% endif %}

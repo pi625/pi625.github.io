@@ -1,0 +1,31 @@
+mathematics:
+  - title: Overview
+    url: /mathematics/
+  - title: Papers
+    url: /mathematics/papers/
+  - title: Projects
+    url: /mathematics/projects/
+
+linguistics:
+  - title: Overview
+    url: /linguistics/
+  - title: Papers
+    url: /linguistics/papers/
+  - title: Projects
+    url: /linguistics/projects/
+  - title: Conlang
+    url: /linguistics/conlang/
+
+philosophy:
+  - title: Overview
+    url: /philosophy/
+  - title: Papers
+    url: /philosophy/papers/
+
+etc:
+  - title: Overview
+    url: /etc/
+  - title: Books
+    url: /etc/books/
+  - title: Media
+    url: /etc/media/

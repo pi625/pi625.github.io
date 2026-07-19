@@ -1,0 +1,11 @@
+{%- comment -%}
+Rename-proof link to another post. Match on a stable `ref` field in the target
+post's front matter instead of its filename, so posts can be renamed or moved
+freely without breaking cross-links.
+
+Usage:  {% include post_link.html ref="nullstellensatz" %}
+Outputs the target post's URL (empty string if no post has that ref).
+{%- endcomment -%}
+{%- assign _posts = site.pages | where: "layout", "post" -%}
+{%- assign _match = _posts | where: "ref", include.ref | first -%}
+{{- _match.url | relative_url -}}

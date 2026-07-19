@@ -1,0 +1,11 @@
+{%- comment -%}
+Resolve the URL of a file colocated with the current post (e.g. an interactive
+script in the post's own `js/` folder). The path is derived from the post's
+source location at build time, so it keeps working even if you rename the post
+file or its folder.
+
+Usage (inside a post):
+  <script src="{% include post_asset.html file='js/example.js' %}"></script>
+{%- endcomment -%}
+{%- assign _dir = page.path | remove: page.name -%}
+{{- '/' | append: _dir | append: include.file | relative_url -}}

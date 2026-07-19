@@ -9,7 +9,6 @@ lang: en
 
 markdown: kramdown
 highlighter: rouge
-permalink: /blog/:title/
 
 kramdown:
   # Default kramdown parser (not GFM): GFM treats "|" in inline $math$ as
@@ -36,15 +35,20 @@ theme_config:
   home:
     title_blog: "Recent writing"
 
+# Blog posts live under `writing/` (a plain folder, not `_posts`), so filenames
+# are free-form: drop in a Markdown file with `layout: post` and a `date` in its
+# front matter and it is picked up automatically — no date-prefixed filename
+# required, and you can rename posts or their folders whenever you like. Each
+# post gets the URL /blog/<filename>/ and may keep colocated assets (e.g. a
+# `js/` folder) right next to its Markdown.
 defaults:
   - scope:
-      path: ""
-      type: "posts"
+      path: "writing"
     values:
       layout: "post"
+      permalink: "/blog/:basename/"
 
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 

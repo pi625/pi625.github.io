@@ -2,7 +2,7 @@
 layout: post
 title: "SoME 5"
 date: 2026-07-18
-tags: [meta, some]
+tags:
 excerpt: "SoME 5."
 ---
 

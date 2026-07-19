@@ -1,0 +1,11 @@
+{% if page.section %}
+  {% assign items = site.data.subnav[page.section] %}
+  {% if items %}
+  <nav class="subnav" aria-label="Section">
+    {% for item in items %}
+      {% assign t = item.url | relative_url %}
+      <a href="{{ item.url | relative_url }}"{% if page.url == t %} class="active"{% endif %}>{{ item.title }}</a>
+    {% endfor %}
+  </nav>
+  {% endif %}
+{% endif %}

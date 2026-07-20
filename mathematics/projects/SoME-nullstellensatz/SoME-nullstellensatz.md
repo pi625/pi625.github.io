@@ -247,13 +247,12 @@ the expression $1 - a^{p-1}$ is $1$ when $a = 0$ and $0$ otherwise — it is an
 
 $$ \sum_{a \in \mathbb{F}_p} a^{\,t} \;=\; \begin{cases} -1 & \text{if } (p-1) \mid t \text{ and } t > 0, \\ 0 & \text{otherwise.} \end{cases} $$
 
-Why? If $t = 0$ every term is $1$ (using $0^0 = 1$) and the sum is $p \equiv 0$.
-If $t > 0$ and $(p-1) \mid t$, then every non-zero $a$ has $a^t = 1$, so the sum is
-$(p-1)\cdot 1 = -1$ in $\mathbb{F}_p$. And if $t > 0$ with $(p-1) \nmid t$, pick a
-generator $g$ of the cyclic group $\mathbb{F}_p^\times$; multiplication by $g$
-permutes the non-zero elements, so $\sum_{a \neq 0} a^t = \sum_{a \neq 0} (ga)^t
-= g^t \sum_{a \neq 0} a^t$, and since $g^t \neq 1$ the sum must be $0$. That is the
-whole engine: **low-degree monomials sum to zero over the cube $\mathbb{F}_p^n$.**
+Why? If $$t = 0$$ every term is $$1$$ (using $$0^0 = 1$$) and the sum is $$p \equiv 0$$.
+If $$t > 0$$ and $$(p-1) \mid t$$, then every non-zero $$a$$ has $$a^t = 1$$, so the sum is
+$$(p-1)\cdot 1 = -1$$ in $$\mathbb{F}_p$$. And if $$t > 0$$ with $$(p-1) \nmid t$$, pick a
+generator $$g$$ of the cyclic group $$\mathbb{F}_p^\times$$; multiplication by $$g$$
+permutes the non-zero elements, so $$\sum_{a \neq 0} a^t = \sum_{a \neq 0} (ga)^t = g^t \sum_{a \neq 0} a^t$$, and since $$g^t \neq 1$$ the sum must be $$0$$. That is the
+whole engine: **low-degree monomials sum to zero over the cube $$\mathbb{F}_p^n$$.**
 
 *The count.* Consider the single polynomial
 
@@ -1001,12 +1000,12 @@ prompted by Terence Tao's blog write-up, adapted the idea to $\mathbb{F}_3^n$ an
 settled the cap-set rate. The engine is a single lemma about the rank of certain
 matrices built from low-degree polynomials.
 
-> **Croot–Lev–Pach lemma.** Let $P \in \mathbb{F}_3[x_1, \dots, x_n]$ be a
-> polynomial in which every variable appears to degree $\le 2$ (a *reduced*
-> polynomial, since $x^3 = x$ on $\mathbb{F}_3$), and let $A \subseteq \mathbb{F}_3^n$.
-> Consider the $|A| \times |A|$ matrix $M$ with entries $M_{a,b} = P(a + b)$. If
-> $\deg P \le d$, then the rank of $M$ is at most twice the number of reduced
-> monomials of degree $\le d/2$.
+> **Croot–Lev–Pach lemma.** Let $$P \in \mathbb{F}_3[x_1, \dots, x_n]$$ be a
+> polynomial in which every variable appears to degree $$\le 2$$ (a *reduced*
+> polynomial, since $$x^3 = x$$ on $$\mathbb{F}_3$$), and let $$A \subseteq \mathbb{F}_3^n$$.
+> Consider the $$|A| \times |A|$$ matrix $$M$$ with entries $$M_{a,b} = P(a + b)$$. If
+> $$\deg P \le d$$, then the rank of $$M$$ is at most twice the number of reduced
+> monomials of degree $$\le d/2$$.
 
 *Why the lemma holds.* Expand $P(a+b)$ over its monomials. A monomial of $P$ of
 degree $\le d$, evaluated at $a + b$, splits into a part depending on $a$ and a
@@ -1065,7 +1064,7 @@ now expressed as a rank bound.
 <div class="widget" id="slice-rank">
   <p class="widget-title">Widget · The Exponential Gap</p>
   <div class="sr-controls">
-    <label>dimension $n$ <input type="range" class="sr-n" min="1" max="40" value="12"></label>
+    <label>dimension $n$ <input type="range" class="sr-n" min="1" max="40" value="25"></label>
   </div>
   <canvas class="sr-canvas" aria-label="comparison of 3^n against the cap-set bound 3 gamma^n"></canvas>
   <p class="sr-out"></p>

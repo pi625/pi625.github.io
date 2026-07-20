@@ -8,7 +8,7 @@
   var root = document.getElementById("slice-rank");
   if (!root) return;
 
-  var GAMMA = 2.7551, N = 12;
+  var GAMMA = 2.7551, N = 25;
   var nEl = root.querySelector(".sr-n"), out = root.querySelector(".sr-out");
   var canvas = root.querySelector(".sr-canvas"), ctx = canvas.getContext("2d");
 
@@ -52,7 +52,9 @@
 
     var full = Math.pow(3, N), bound = 3 * Math.pow(GAMMA, N), frac = bound / full;
     out.innerHTML = "n = <b>" + N + "</b> · |F₃ⁿ| = 3ⁿ = <b>" + fmt(full) + "</b> · cap bound 3·γⁿ ≈ <b>" + fmt(bound) +
-      "</b> · caps are ≤ <b>" + (frac * 100).toPrecision(3) + "%</b> of the space, and that fraction is (γ/3)ⁿ → 0.";
+      "</b> · " + (frac < 1
+        ? "caps are ≤ <b>" + (frac * 100).toPrecision(3) + "%</b> of the space; that fraction is (γ/3)ⁿ → 0."
+        : "bound still ≥ 100% here (it only bites once n ≥ 13) — slide n up to watch the gap open.");
     out.style.color = text;
   }
 

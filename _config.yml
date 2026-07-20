@@ -10,6 +10,10 @@ lang: en
 markdown: kramdown
 highlighter: rouge
 
+# Large-image social cards (used by jekyll-seo-tag with the default og:image).
+twitter:
+  card: summary_large_image
+
 kramdown:
   # Default kramdown parser (not GFM): GFM treats "|" in inline $math$ as
   # table delimiters, which breaks equations with absolute-value bars.
@@ -42,12 +46,19 @@ theme_config:
 # post gets the URL /blog/<filename>/ and may keep colocated assets (e.g. a
 # `js/` folder) right next to its Markdown.
 defaults:
+  # Default social-share image for every page (jekyll-seo-tag emits og:image /
+  # twitter:image). Pages can override with their own `image:` in front matter.
+  - scope:
+      path: ""
+    values:
+      image: /assets/og.png
   # Blog posts under writing/ -> /blog/<filename>/
   - scope:
       path: "writing"
     values:
       layout: "post"
       permalink: "/blog/:basename/"
+      math: true
   # Mathematics projects under mathematics/projects/ -> /mathematics/projects/<filename>/
   # (mathematics/projects.md keeps its own layout/permalink; these apply to the
   # post bundles nested beside it.)
@@ -56,6 +67,7 @@ defaults:
     values:
       layout: "post"
       permalink: "/mathematics/projects/:basename/"
+      math: true
 
 plugins:
   - jekyll-seo-tag

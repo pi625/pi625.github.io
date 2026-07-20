@@ -12,6 +12,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap">
+
+  {%- comment -%} Favicon: inline π glyph, no extra request. {%- endcomment -%}
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%233f68cc'/><text x='50' y='72' font-size='68' font-family='Georgia,serif' fill='white' text-anchor='middle'>&#960;</text></svg>">
 
   <!-- Site styles -->
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
@@ -20,6 +24,7 @@
     {% include toggle_theme_js.html %}
   {% endif %}
 
-  {% include math.html %}
+  {%- comment -%} Load MathJax only on pages that opt in with `math: true`. {%- endcomment -%}
+  {% if page.math %}{% include math.html %}{% endif %}
   {%- include custom_head.html -%}
 </head>

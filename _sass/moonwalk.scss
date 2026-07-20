@@ -5,10 +5,10 @@
 /* ============================================================= */
 
 @mixin light-appearance {
-  --bg: #e7eef8;
+  --bg: #cfe2f6;
   --bg-gradient:
-    radial-gradient(1000px 620px at 50% -12%, rgba(255, 255, 255, 0.55) 0%, transparent 60%),
-    linear-gradient(170deg, #edf3fb 0%, #e4ecf7 100%);
+    radial-gradient(1000px 620px at 50% -12%, rgba(223, 238, 253, 0.60) 0%, transparent 60%),
+    linear-gradient(170deg, #d7e8fb 0%, #c1d8f2 100%);
   --headings: #1b2a44;
   --text: #3b475f;
   --text-secondary: #74809a;

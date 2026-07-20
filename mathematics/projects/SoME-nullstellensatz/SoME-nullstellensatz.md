@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Combinatorial Nullstellensatz, from scratch"
-date: 2026-07-18
+date: 
 ref: nullstellensatz
 excerpt: "From a warm-up on sumsets to encoding sets as polynomials — building the Combinatorial Nullstellensatz from scratch."
 tags: [3B1B, SoME 5]

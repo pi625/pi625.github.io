@@ -1,0 +1,88 @@
+/* Scoped styles for the interactive widgets in "The Polynomial Cheat Code".
+   Everything is namespaced under .widget / .pw so it never touches global CSS.
+   Colors come from the theme's CSS variables, so widgets match light/dark mode. */
+
+.widget {
+  margin: 2rem 0;
+  padding: 1.1rem 1.2rem 1.3rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--glass);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.widget-title {
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0 0 .9rem;
+}
+.widget-placeholder {
+  color: var(--text-secondary);
+  font-style: italic;
+  text-align: center;
+  padding: 1.4rem 0;
+}
+
+/* ---- Widget 2: Polynomial Encoder --------------------------------------- */
+.pw-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.pw-node {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-strong);
+  color: var(--text);
+  font-family: 'Roboto Mono', monospace;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: transform .08s ease, background .15s ease, color .15s ease;
+}
+.pw-node:hover { transform: translateY(-2px); }
+.pw-node.is-on {
+  background: var(--links);
+  border-color: var(--links);
+  color: #fff;
+  font-weight: 600;
+}
+.pw-controls {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  flex-wrap: wrap;
+  font-size: .92rem;
+  color: var(--text-secondary);
+  margin-bottom: .4rem;
+}
+.pw-controls .pw-slider { accent-color: var(--links); flex: 1 1 160px; max-width: 260px; }
+.pw-controls .pw-d { font-family: 'Roboto Mono', monospace; color: var(--links); font-weight: 600; }
+.pw-latex {
+  overflow-x: auto;
+  margin: .3rem 0 .6rem;
+  text-align: center;
+}
+.pw-canvas {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+}
+.pw-warn {
+  margin-top: .7rem;
+  padding: .6rem .8rem;
+  border-radius: 10px;
+  border: 1px solid rgba(210, 70, 90, 0.35);
+  background: rgba(210, 70, 90, 0.10);
+  color: var(--text);
+  font-size: .9rem;
+}
+.pw-hint { font-size: .88rem; color: var(--text-secondary); margin: .2rem 0 0; }

@@ -14,7 +14,8 @@
   var GRAPHS = {
     c4:   { n: 4, edges: [[0,1],[1,2],[2,3],[0,3]], pos: [[0.3,0.28],[0.7,0.28],[0.7,0.72],[0.3,0.72]] },
     k4:   { n: 4, edges: [[0,1],[0,2],[0,3],[1,2],[1,3],[2,3]], pos: [[0.5,0.2],[0.2,0.55],[0.8,0.55],[0.5,0.82]] },
-    path: { n: 4, edges: [[0,1],[1,2],[2,3]], pos: [[0.18,0.5],[0.4,0.5],[0.6,0.5],[0.82,0.5]] }
+    path: { n: 4, edges: [[0,1],[1,2],[2,3]], pos: [[0.18,0.5],[0.4,0.5],[0.6,0.5],[0.82,0.5]] },
+    bull: { n: 5, edges: [[0,1],[1,2],[0,2],[0,3],[1,4]], pos: [[0.38,0.6],[0.62,0.6],[0.5,0.82],[0.16,0.32],[0.84,0.32]] }
   };
   var gkey = "c4", k = 2, lists = [], color = [];
   var kEl = root.querySelector(".at-k"), out = root.querySelector(".at-out");
@@ -30,6 +31,8 @@
   });
   root.querySelector(".at-ex").classList.add("is-on");
   kEl.addEventListener("input", function () { k = +kEl.value; newLists(); });
+  var shuffleEl = root.querySelector(".at-shuffle");
+  if (shuffleEl) shuffleEl.addEventListener("click", newLists);
   canvas.addEventListener("click", function (e) {
     var r = canvas.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top;
     for (var i = 0; i < nodes.length; i++) { var dx = mx - nodes[i].x, dy = my - nodes[i].y; if (dx * dx + dy * dy < 24 * 24) { cycle(i); return; } }

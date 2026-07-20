@@ -22,6 +22,8 @@
   var elA = root.querySelector(".sp-a"), elB = root.querySelector(".sp-b"),
       elS = root.querySelector(".sp-s"), elBound = root.querySelector(".sp-bound");
   var canvas = root.querySelector(".sp-canvas"), ctx = canvas.getContext("2d");
+  var linesEl = root.querySelector(".sp-lines");
+  if (linesEl) linesEl.addEventListener("change", render);
   var pts = [];
 
   sel.addEventListener("change", function () { p = +sel.value; A = {}; B = {}; render(); });
@@ -71,10 +73,29 @@
     ctx.strokeStyle = hair; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.arc(cx, cy, R, 0, 2 * Math.PI); ctx.stroke();
 
+    // node positions
+    var pos = [];
+    for (var q = 0; q < p; q++) {
+      var a0 = -Math.PI / 2 + q * 2 * Math.PI / p;
+      pos.push({ x: cx + R * Math.cos(a0), y: cy + R * Math.sin(a0) });
+    }
+
+    // sum chords: from each a in A and b in B, arc toward their sum a+b
+    if (linesEl && linesEl.checked) {
+      var ak = Object.keys(A), bk = Object.keys(B);
+      ctx.lineWidth = 1;
+      for (var ia = 0; ia < ak.length; ia++) for (var ib = 0; ib < bk.length; ib++) {
+        var s = (+ak[ia] + +bk[ib]) % p;
+        var src = pos[+ak[ia]], dst = pos[s];
+        ctx.strokeStyle = "rgba(46,158,91,.28)";
+        ctx.beginPath(); ctx.moveTo(src.x, src.y);
+        ctx.quadraticCurveTo(cx, cy, dst.x, dst.y); ctx.stroke();
+      }
+    }
+
     pts = [];
     for (var k = 0; k < p; k++) {
-      var ang = -Math.PI / 2 + k * 2 * Math.PI / p;
-      var x = cx + R * Math.cos(ang), y = cy + R * Math.sin(ang);
+      var x = pos[k].x, y = pos[k].y;
       pts.push({ x: x, y: y });
       if (S[k]) { ctx.beginPath(); ctx.arc(x, y, 17, 0, 2 * Math.PI); ctx.strokeStyle = green; ctx.lineWidth = 3; ctx.stroke(); }
       ctx.beginPath(); ctx.arc(x, y, 12, 0, 2 * Math.PI);

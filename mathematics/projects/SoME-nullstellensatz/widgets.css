@@ -68,7 +68,8 @@
 .widget b { color: var(--links); font-family: 'Roboto Mono', monospace; }
 
 .sp-canvas, .eh-canvas, .ka-canvas { height: 360px; }
-.pw-canvas, .cw-canvas, .gv-canvas, .ip-canvas, .xy-canvas, .at-canvas, .hb-canvas, .cs-canvas { height: 320px; }
+.pw-canvas, .cw-canvas, .gv-canvas, .ip-canvas, .xy-canvas, .at-canvas, .hb-canvas, .cs-canvas,
+.sz-canvas, .nr-canvas, .sr-canvas { height: 320px; }
 
 /* Widget 2: Polynomial Encoder ------------------------------------------- */
 .pw-line { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; margin-bottom: 1rem; }
@@ -123,3 +124,34 @@
 
 /* Alon-Tarsi -------------------------------------------------------------- */
 .at-controls .at-ex { font-size: .82rem; }
+
+/* Chevalley-Warning zero counter ----------------------------------------- */
+.cw-verdict { margin-top: .6rem; font-family: 'Roboto Mono', monospace; font-size: .86rem; }
+
+/* Erdős–Ginzburg–Ziv finder ---------------------------------------------- */
+.egz-chips { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; margin: .3rem 0 .6rem; }
+.egz-chip {
+  min-width: 2.2rem; height: 2.2rem; border-radius: 10px;
+  border: 1px solid var(--glass-border); background: var(--glass-strong);
+  color: var(--text); font-family: 'Roboto Mono', monospace; font-size: .9rem; cursor: pointer;
+  transition: transform .08s ease, background .15s ease, color .15s ease; padding: 0 .3rem;
+}
+.egz-chip:hover { transform: translateY(-2px); }
+.egz-chip.is-on { background: #2e9e5b; border-color: #2e9e5b; color: #fff; font-weight: 600; }
+.egz-out, .sz-out, .sr-out {
+  margin-top: .6rem; padding: .6rem .8rem; border-radius: 10px; font-size: .9rem; color: var(--text);
+  border: 1px solid var(--glass-border); background: var(--highlight);
+}
+
+/* Schwartz–Zippel + slice-rank + reduction outputs ----------------------- */
+.sz-canvas { cursor: grab; }
+.sz-canvas:active { cursor: grabbing; }
+.ip-canvas { cursor: grab; }
+.ip-canvas:active { cursor: grabbing; }
+.nr-out { margin-top: .6rem; font-family: 'Roboto Mono', monospace; font-size: .84rem; line-height: 1.7;
+  overflow-x: auto; padding: .7rem .8rem; border-radius: 10px; background: var(--glass-strong);
+  border: 1px solid var(--glass-border); }
+
+/* checkbox labels -------------------------------------------------------- */
+.sp-lines-lab, .hb-sign-lab { display: inline-flex; align-items: center; gap: .35rem; font-size: .85rem; }
+.sp-lines-lab input, .hb-sign-lab input { margin: 0; }

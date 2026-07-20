@@ -1,0 +1,20 @@
+{%- comment -%}
+Prev/next links between posts in the SAME folder as the current post, ordered by
+date. Replaces Jekyll's `page.next`/`page.previous`, which for plain pages walk
+source order and can point at unrelated pages. Renders nothing if there are no
+siblings.
+{%- endcomment -%}
+{%- assign _dir = page.path | remove: page.name -%}
+{%- assign _siblings = site.pages | where: "layout", "post" | where_exp: "p", "p.path contains _dir" | sort: "date" -%}
+{%- assign _idx = -1 -%}
+{%- for p in _siblings -%}{%- if p.url == page.url -%}{%- assign _idx = forloop.index0 -%}{%- endif -%}{%- endfor -%}
+{%- assign _older_i = _idx | minus: 1 -%}
+{%- assign _newer_i = _idx | plus: 1 -%}
+{%- assign _older = _siblings[_older_i] -%}
+{%- assign _newer = _siblings[_newer_i] -%}
+{% if _older or _newer %}
+<div class="post-nav-siblings">
+  {% if _older and _idx > 0 %}<a class="prev" href="{{ _older.url | relative_url }}">← {{ _older.title }}</a>{% endif %}
+  {% if _newer %}<a class="next" href="{{ _newer.url | relative_url }}">{{ _newer.title }} →</a>{% endif %}
+</div>
+{% endif %}
